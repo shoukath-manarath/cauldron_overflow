@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\MarkdownHelper;
+use Sentry\State\HubInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,8 +26,11 @@ class QuestionController extends AbstractController
     /**
      * @Route("/questions/{slug}", name="app_question_show")
      */
-    public function showpage($slug, MarkdownHelper $markdownHelper)
+    public function showpage($slug, MarkdownHelper $markdownHelper, HubInterface $sentryHub)
     {
+        dump($sentryHub);
+        throw new \Exception('bad stuf happened');
+
         $answers = [
             'fake answer one',
             'fake answer two',
