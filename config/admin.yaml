@@ -1,0 +1,5 @@
+services:
+    admin.category:
+        class: App\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Category, controller: App\Controller\CategoryAdminController, manager_type: orm, group: admin, label: Category }
