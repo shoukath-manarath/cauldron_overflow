@@ -3,3 +3,8 @@ services:
         class: App\Admin\CategoryAdmin
         tags:
             - { name: sonata.admin, model_class: App\Entity\Category, controller: App\Controller\CategoryAdminController, manager_type: orm, group: admin, label: Category }
+
+    admin.blog_post:
+        class: App\Admin\BlogPostAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\BlogPost, controller: App\Controller\BlogPostAdminController, manager_type: orm, group: admin, label: BlogPost }

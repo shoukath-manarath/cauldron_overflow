@@ -10,21 +10,16 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-final class CategoryAdmin extends AbstractAdmin
+final class BlogPostAdmin extends AbstractAdmin
 {
-
-    protected function configureFormFields(FormMapper $form): void
-    {
-        $form
-            ->add('name')
-        ;
-    }
 
     protected function configureDatagridFilters(DatagridMapper $filter): void
     {
         $filter
             ->add('id')
-            ->add('name')
+            ->add('title')
+            ->add('body')
+            ->add('draft')
             ;
     }
 
@@ -32,7 +27,9 @@ final class CategoryAdmin extends AbstractAdmin
     {
         $list
             ->add('id')
-            ->add('name')
+            ->add('title')
+            ->add('body')
+            ->add('draft')
             ->add(ListMapper::NAME_ACTIONS, null, [
                 'actions' => [
                     'show' => [],
@@ -42,11 +39,23 @@ final class CategoryAdmin extends AbstractAdmin
             ]);
     }
 
+    protected function configureFormFields(FormMapper $form): void
+    {
+        $form
+            ->add('id')
+            ->add('title')
+            ->add('body')
+            ->add('draft')
+            ;
+    }
+
     protected function configureShowFields(ShowMapper $show): void
     {
         $show
             ->add('id')
-            ->add('name')
+            ->add('title')
+            ->add('body')
+            ->add('draft')
             ;
     }
 }
